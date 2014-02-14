@@ -1,0 +1,181 @@
+@import 'compass';
+@import 'mixins';
+@import 'fonts';
+
+/* Global ---------------------------------------------------------------*/
+
+// * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+html, body { margin:0; height: 100%; background: white; font-family: Raleway; }
+
+
+
+/* Main styling --------------------------------------------------------------*/
+
+.metric{
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    display: none;
+}
+
+$watch-size: 600px;
+
+$deg: 6deg;
+
+.watch{
+    display: block;
+    background: url('../images/logo.png');
+    background-size: 240px;
+    background-repeat: no-repeat;
+    // background-position:182px 100px; 
+    background-position: center 100px;
+    width: $watch-size;
+    height:$watch-size;
+    border-radius: 50%;
+    border: 50px solid black;
+    margin: 100px auto;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.35);
+    
+    //put a line on for all min. and rotated each 6deg
+    .minuteLine{  
+        right:49.87%;
+        @include line(15px);
+        @include transform-origin(50%, $watch-size/2);
+        font-size: 44px;
+    }
+    @for $i from 1 through 60 {
+     
+        .minuteLine:nth-child(#{$i+1}){
+        @include rotate($deg*$i);
+        } 
+    }
+    //make every quater thicker and longer line
+    .minuteLine:nth-child(1),.minuteLine:nth-child(16),.minuteLine:nth-child(31),.minuteLine:nth-child(46){
+        @include line(30px,3px, black);
+    }
+    //Add 0, 15,30,45
+    .minuteLine:nth-child(1){
+        &:after{
+            content: '0';
+            top: 25px;
+            right: -13px;
+            position: absolute;
+
+        }
+    }
+    .minuteLine:nth-child(6){
+        @include line(17.5px, 1.5px, black);
+        &:after{
+            content: '5';
+            position: absolute;
+            top: 23px;
+            left: -12px;
+            @include rotate(-31deg);
+        }
+    }
+    .minuteLine:nth-child(11){
+        @include line(17.5px, 1.5px, black);
+        &:after{
+            content: '10';
+            position: absolute;
+            top: 30px;
+            left: -23px;
+            @include rotate(-58deg);
+        }
+    }
+    .minuteLine:nth-child(16){
+        &:after{
+            content: '15';
+            top: 37px;
+            right: -15px;
+            position: absolute;
+            @include rotate(-90deg);
+
+        }
+    }
+    .minuteLine:nth-child(21){
+        @include line(17.5px, 1.5px, black);
+        &:after{
+            content: '20';
+            position: absolute;
+            top: 30px;
+            left: -23px;
+            @include rotate(240deg);
+        }
+    }
+    .minuteLine:nth-child(26){
+        @include line(17.5px, 1.5px, black);
+        &:after{
+            content: '25';
+            position: absolute;
+            top: 30px;
+            left: -23px;
+            @include rotate(210deg);
+        }
+    }
+    .minuteLine:nth-child(31){
+        &:after{
+            content: '30';
+            top: 35px;
+            right: -23px;
+            position: absolute;
+            @include rotate(180deg);
+
+        }
+    }
+    .minuteLine:nth-child(36){
+        @include line(17.5px, 1.5px, black);
+        &:after{
+            content: '35';
+            top: 30px;
+            right: -23px;
+            position: absolute;
+            @include rotate(150deg);
+
+        }
+    }
+    .minuteLine:nth-child(41){
+        @include line(17.5px, 1.5px, black);
+        &:after{
+            content: '40';
+            top: 30px;
+            right: -23px;
+            position: absolute;
+            @include rotate(120deg);
+
+        }
+    }
+    .minuteLine:nth-child(46){
+        &:after{
+            content: '45';
+            top: 40px;
+            right: -30px;
+            position: absolute;
+            @include rotate(90deg);
+
+        }
+    }
+    .minuteLine:nth-child(51){
+        @include line(17.5px, 1.5px, black);
+        &:after{
+            content: '50';
+            top: 30px;
+            right: -23px;
+            position: absolute;
+            @include rotate(60deg);
+
+        }
+    }
+    .minuteLine:nth-child(56){
+        @include line(17.5px, 1.5px, black);
+        &:after{
+            content: '55';
+            top: 25px;
+            right: -23px;
+            position: absolute;
+            @include rotate(30deg);
+
+        }
+    }
+}
