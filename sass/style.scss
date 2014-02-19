@@ -8,15 +8,7 @@
 #mobile{
     display: none;
 }
-.slidercon{
-    margin-left: 30px;
-    width: 50px;
-    float: right;
-}
-#noUiSlider{
-    margin: 10px 80px 1 50px;
-    height: 200px;
-}
+
 .metric{
     font-family: 'Lato'; 
     position: absolute;
@@ -206,7 +198,7 @@ $deg: 6deg;
 
 @media (max-width: 650px) {
     .metric {
-        top: 60%; 
+        top: 60;
         left:27%;
         color: #D4F3D4;
         border-radius: 4px;
@@ -241,6 +233,12 @@ $deg: 6deg;
     #mobile{
         display: block;
         position: relative;
+        h2{
+            font-family: Raleway;
+            font-size: 400%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
     }
     .watch{
         background-size: 200px; 
@@ -251,14 +249,22 @@ $deg: 6deg;
         margin-top: 0;margin-bottom:0;
         height: 200px;
     }
+    .slidercon{
+        width: 85%;
+        margin: 30px auto;
+    }
+    #noUiSlider{
+        margin: 10px 80px 1 50px;
+        height: 20px;
+    }
     .metricp{
-        float: right;
         background:darkgreen;
         color: #D4F3D4;
         padding: 15px;
         font-size: 16px;
-        margin-top: 50px;
         border-radius: 5px;
+        margin: 0 auto;
+        width: 60%;
     }
     .minuteLine{
         display: none;
@@ -268,5 +274,11 @@ $deg: 6deg;
         width: 85%;
         left: 5%;
     }
+
+}
+@media (max-width: 350px) {
+#mobile h2{
+    font-size: 200%;
+}
 
 }
