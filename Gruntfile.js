@@ -5,9 +5,13 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         watch: {
+            options: {
+                livereload: true,
+                files: ['cdd/**/*.css'],
+            },
             compass: {
                 files: ['sass/**/*.scss'],
-                tasks: ['compass:dev']
+                tasks: ['compass:dev'],
             }
         },
         compass: {

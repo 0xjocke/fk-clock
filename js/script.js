@@ -1,19 +1,51 @@
-$(document).on('mouseover', '.minuteLine', function(event) {
-	var thisNumber = event.currentTarget.dataset.number;
-	var metric = thisNumber/60;
-	$('.metric').html('Metric value is : ' + metric).fadeIn('fast');
+$(function(){
+	$(document).on('mouseenter', '.minuteLine', function(event) {
+		var thisNumber = event.currentTarget.dataset.number;
+		var metric = thisNumber/60;
+		$('.inputnumber').val(thisNumber);
+		var metricEl = $('.metric');
+		metric = Math.round(metric * 100) / 100;
+		$('.minuteLine').css('color', 'black');
+		$(this).css('color', 'green');
+		metricEl.html(thisNumber + ' minuter är: ' + metric + ' timmar').fadeIn('fast');
+	})
+
+	$(document).on('submit', '.fk-form', function(event) {
+		event.preventDefault();
+		var thisNumber = $('.inputnumber').val();
+		var metric = thisNumber/60;
+		var metricEl = $('.metric');
+		metric = Math.round(metric * 100) / 100;
+		metricEl.html(thisNumber + ' minuter är: ' + metric + ' timmar').fadeIn('fast');
+	});
+	$(document).on('mouseenter', '.zero', function(event) {
+		$('.metric').fadeOut('fast');
+	});
+
+	$(window).bind("orientationchange", function(){
+		$('.metric').fadeOut('fast');
+	});
+
+	$("#noUiSlider").noUiSlider({
+		range: [0, 59],
+		start: [20],
+		handles: 1,
+		step: 1,
+		margin: 20,
+		direction: 'rtl',
+		orientation: 'vertical',
+		behaviour: 'tap-drag',
+		serialization: {
+			mark: ',',
+			resolution: 1,
+			to: [$('#value-span'), 'html']
+		},
+	}).change(function(){
+		var minutes = $('#value-span').html();
+		var metric = minutes/60;
+		metric = Math.round(metric * 100) / 100;
+		$('#metricValue').html(metric + ' timmar');
+
+	});
 });
 
-$(document).on('mouseleave', '.minuteLine', function(event) {
-	var metricClass = $('.metric');
-	if (!metricClass.hasClass('clicked')) {
-		$('.metric').html('').fadeOut('fast');
-	}
-});
-
-$(document).on('click', '.minuteLine', function(event) {
-	var thisNumber = event.currentTarget.dataset.number;
-	var metric = thisNumber/60;
-	var metricClass = $('.metric');
-	metricClass.toggleClass('clicked');
-});

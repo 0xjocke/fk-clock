@@ -4,18 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Tidskonverteraren</title>
       <link rel="stylesheet" href="css/style.css">
-      <!-- Get jquery from google if problem use a local version -->
-      <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
-      <script>
-          if (!window.jQuery) {
-              document.write('<script src="js/jquery.js"><\/script>');
-          }
-      </script>
 </head>
 <body>
-<div class="metric"></div>
 <div class="watch">
-      <div class="minuteLine" data-number="0"></div>
+      <div class="minuteLine zero" data-number="0"></div>
       <div class="minuteLine" data-number="1"></div>
       <div class="minuteLine" data-number="2"></div>
       <div class="minuteLine" data-number="3"></div>
@@ -75,8 +67,28 @@
       <div class="minuteLine" data-number="57"></div>
       <div class="minuteLine" data-number="58"></div>
       <div class="minuteLine" data-number="59"></div>
-
+      <div class="metric"></div>
+      <form class="fk-form">
+            <label for="inputnumber">Antal minuter att konventera</label>
+            <input class="inputnumber" id="inputnumber" type="number" min="1" max="59" required>
+            <input id="inputbtn" type="submit" value="Konventera">
+      </form>
 </div>
+<div id="mobile">
+      <div class="slidercon">
+            <div id="noUiSlider"></div>
+      </div>
+      <p class="metricp"><span id="value-span"></span> minuter är <span id="metricValue">0.33<span> timmar</p>
+</div>
+<!-- Get jquery from google if problem use a local version -->
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<script>
+      if (!window.jQuery) {
+        document.write('<script src="js/jquery.js"><\/script>');
+      }
+</script>
+<script src="js/jquery.nouislider.min.js"></script>
+
 <script src="js/script.js"></script>
 </body>
 </html>

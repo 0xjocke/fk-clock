@@ -1,0 +1,36 @@
+
+.metric {
+	top: 42%;
+	left:30%;
+	color: #D4F3D4;
+	border-radius: 4px;
+	padding: 5px;
+	font-size: 12px;
+}
+
+.watch {
+	background-size: 100px;
+	background-position: center 75px;
+	width: 400px;
+	height: 400px;
+}
+.watch .minuteLine {
+	right: 49.5%;
+	-webkit-transform-origin: 50% 200px;
+	-moz-transform-origin: 50% 200px;
+	-ms-transform-origin: 50% 200px;
+	-o-transform-origin: 50% 200px;
+	transform-origin: 50% 200px;
+	font-size: 30px;
+}
+.fk-form{
+
+    top:53%;
+    left:29%;
+    width: 200px;
+    label{
+        display: block;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+}

@@ -1,6 +1,7 @@
-@mixin line($length, $size:1px, $color:darken(#dedede, 30%)) {
-    content:"";
-    border:solid $size $color;              // Line between line and year*/
+@mixin line($length, $color:darken(#dedede, 30%), $size:4px) {
+    width: $size;
+    background: $color;
     position: absolute;
     height:$length;
+  	border-top: none;border-bottom:none;
 }
